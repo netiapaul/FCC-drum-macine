@@ -1,26 +1,31 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import Sounds from './sounds';
+import KeyPad from './components/key';
+import Display from './components/display';
+class App extends React.Component {
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+  constructor(props) {
+    super(props);
+    this.state = {
+      display:""
+    };
+    this.handleDisplay = this.handleDisplay.bind(this);
+  }
+  
+  handleDisplay(name){
+    this.setState({
+      display:name
+    })
+  }
+
+ render(){
+   const {display} = this.state;
+    return (
+    <div className="App" id="drum-machine">
+    <KeyPad sounds={Sounds} onHandleName = {this.handleDisplay}/>
+    <Display display = {display}/>
     </div>
-  );
+  )};
 }
 
 export default App;
