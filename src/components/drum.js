@@ -48,10 +48,10 @@ class Drum extends React.Component{
         return(
             <div className="drum drum-pad" id={sound.id} onClick={this.playAudio}>
                 <audio className="clip" src={sound.url} id={sound.key}/>
+                
+                <button type="button" className="btn btn-outline-primary" onClick={this.playAudio}>
                 {sound.key}
-                {/* <button type="button" className="btn btn-outline-primary" onClick={this.playAudio}>
-               
-                </button> */}
+                </button>
             </div>
         )
     }
